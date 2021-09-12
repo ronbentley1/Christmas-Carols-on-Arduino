@@ -98,16 +98,28 @@ That's it. We are now able to process the play list how we please. Let's look at
 Main Loop - the main loop will be seen to be almost trivial in its design:
 
 void loop() {
+
  do {
+ 
    // Process the play_list by selecting each of its preset and randomsised
+   
    // elements, and execute each respective music score funcion.
+   
    for (uint8_t carol = 0; carol < num_carols; carol++) {
+   
      play_list[carol]();  // execute this ([carol]) music score function
+     
      wait(3); // wait a short time between carols
+     
    }
+   
    shuffle_play_list(); // randomise the play_list for the next play_list pass
+   
  } while (true);
+ 
 }
+
+
 The main loop simply goes through each play list element calling its associated carol function - once again, note the syntax - we treat the play list as pseudo function, hence the use of the '()' characters in the call.
 
 After each complete play list cycle, the play list is randomly shuffled so that we get a different carol ordering at each next pass.
@@ -117,8 +129,4 @@ There are many ways in which pointers can be used and, hopefully, by examining t
 Anyway, that's all for this article, for now, and I hope you have found enjoyment in the carols and even, perhaps, added your own carols to the sketch.
 
 # Next Steps?
-Why not add your own carols? Or if you wish to explore music on Arduino a little further then check out two other published articles:
-
-Let's Make Music - a sketch that supports musical notes over several octaves and recognises standard musical durations/timings. It provides all the same features and functions that make up the carol sketch plus a little more additional functionality. Have a look at the crib sheet for this article which provides a useful functionality directory.
-
-Music & Lights Workbench - a sketch that has been designed to encourage those not familiar with computer programming, under a little tuition, to explore the subject through logic and play - making melodies and lighting up LEDs.
+Why not add your own carols? 
