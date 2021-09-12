@@ -30,7 +30,7 @@ If your approach is the first, then great, job done, enjoy the carols and keep t
 # The Hardware
 Couldn't be simpler - all you will need is an Arduino microcontroller (any should be okay), a 100 ohm resistor, a small bread board, some wires and, preferably, an 8 ohm 0.25 watt speaker (or a buzzer if you don't have a speaker to hand).
 
-The wiring diagram is as shown below at Schematics, but it is a very simple circuit to put together. The sketch uses digital output pin 11 to drive the speaker, but if you wish to use another, then choose a suitable alternative pin and change the definition '#define speaker' in the sketch as required.
+The wiring diagram is as shown in the arduino-speaker.jpg image, but it is a very simple circuit to put together. The sketch uses digital output pin 11 to drive the speaker, but if you wish to use another, then choose a suitable alternative pin and change the definition '#define speaker' in the sketch as required.
 
 I should advise that the microcontroller should not be directly connected to anything but a speaker/buzzer as outlined, otherwise you may damage your microcontroller.
 
