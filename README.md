@@ -39,15 +39,19 @@ The sketch is derived of a previous article/publication 'Let's Make Music', modi
 
 If you are fully appraised of pointers, their purpose and use then you can skip this part, otherwise, it is worth taking a little time to explore how these are used by the sketch.
 
-Let's start with how the design makes use of pointers:
+## Let's start with how the design makes use of pointers:
 
 Firstly, each carol music score is defined by its own function with these functions being placed at the end of the sketch, just to avoid cluttering up the sketch and help readability.
+
 Next, at the top part of the sketch, we define forward references for the each of the carol functions as we will need to assign these to our play list array (which is defined as an array of pointers). This is done prior to the declaration of the play list pointer array as it is necessary to ensure that the address references of the carol functions are in scope at the point at which they are needed by the complier. We could have simply declared the carol functions before we declare the play list pointer array, at the top of the sketch, but that would just add a lot of clutter to the sketch where it is helpful for it to be clutter free.
+
 After the carol function forward references are declared, the sketch then defines a play list (play_list) which is an array of type pointer (*) of size equal to the number of carols (carol functions) declared in the sketch (OOTB this will be of size 10). Each element of the play list array is then assigned (preset) with the address reference of each of the carol functions (this is only possible because of the forward carol function declarations).
+
 Now that has been done we are able to use/process the play list as required - eg shuffle (randomise) it, step through it element by element and invoke the associated carol functions, etc.
+
 To recap, let's look at each bit of code in the sketch that allow us to use a pointer based play list.
 
-Forward Reference Declarations To The Carol Functions - note the syntax:
+### Forward Reference Declarations To The Carol Functions - note the syntax:
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,7 +87,7 @@ void silent_night();
 
 void jingle_bells();
 
-Play List Declaration - we declare the play list pointer array with carol function address presets (again, note the syntax):
+### Play List Declaration - we declare the play list pointer array with carol function address presets (again, note the syntax):
 
 //
 
@@ -130,7 +134,7 @@ Note also that we are able to preset the play list pointer array only because we
 
 That's it. We are now able to process the play list how we please. Let's look at the main loop:
 
-Main Loop - the main loop will be seen to be almost trivial in its design:
+### Main Loop - the main loop will be seen to be almost trivial in its design:
 
 void loop() {
 
