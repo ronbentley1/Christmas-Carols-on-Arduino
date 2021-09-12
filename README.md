@@ -50,42 +50,77 @@ To recap, let's look at each bit of code in the sketch that allow us to use a po
 Forward Reference Declarations To The Carol Functions - note the syntax:
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 // Carols data...
+
 // Setup play list data
+
 //
+
 #define num_carols  10
+
 // Forward references for music score functions
+
 // which are defined at end of the sketch to avoid clutter...
+
 void we_wish_you_a_merry_christmas();
+
 void o_come_all_ye_faithful();
+
 void away_in_a_manger();
+
 void ding_dong_merrily();
+
 void good_king_wenceslas();
+
 void the_first_nowell();
+
 void the_holly_and_the_ivy();
+
 void we_three_kings();
+
 void silent_night();
+
 void jingle_bells();
+
 Play List Declaration - we declare the play list pointer array with carol function address presets (again, note the syntax):
 
 //
+
 // Declare pointer array and preset with addresses 
+
 // of each of the carol score functions.
+
 // Note that the oder of the presets is not important
+
 // as the play_list array is constantly randomised 
+
 // by the shuffle_play_list function.
+
 uint16_t (*play_list[num_carols])() = {
+
  we_wish_you_a_merry_christmas,
+ 
  o_come_all_ye_faithful,
+ 
  away_in_a_manger,
+ 
  ding_dong_merrily,
+ 
  good_king_wenceslas,
+ 
  the_first_nowell,
+ 
  the_holly_and_the_ivy,
+ 
  we_three_kings,
+ 
  silent_night,
+ 
  jingle_bells
+ 
 };
+
 
 The syntax to define the play list as an array of pointers looks a little strange, but the two points to note are:
 
