@@ -17,7 +17,7 @@
 
 (Each carol function runs through two complete play cycles, but this may be increased, or otherwise, as you wish by making a simple change to the associated carol functions for-loop upper bounds.)
 
-#bThe Christmas Carols on Arduino sketch is 'plug and play', but there are two ways in which you can approach this article/project -
+The Christmas Carols on Arduino sketch is 'plug and play', but there are two ways in which you can approach this article/project -
 
 1. you can make the speaker circuit as outlined (see Hardware and Schematics below), download and run the associated sketch as is, sit back with a cup of coffee (or, if it is the festive season, some other libation!) and enjoy some carols,
 
