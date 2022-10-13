@@ -2,7 +2,7 @@
 // Ron D Bentley, Stafford, UK, September 2021
 // Modified:
 //   Oct 2022 to remove compliler warning re redfinition
-//   of macros for some macro locally defined notes, eg B0, B1, etc. 
+//   of macros for some macro locally defined notes, eg B0, B1, etc.
 //   Local naming convention for notes now prefixed with "note_".
 //
 // Christmas Carols with Arduino - based on 'let's make music' Arduino sketch
@@ -235,11 +235,14 @@ void (*play_list[num_carols])() = {
 //
 void shuffle_play_list() {
   uint8_t swap_with;
-  void (* swap)();
-  // Keep changing the random seed for shuffling the play_list
-  randomSeed(analogRead(A0) + analogRead(A5) + 1023);
+  void (* swap)(); // same data type as the play_list
+  // Keep changing the random seed for shuffling the play_list.
+  // If the reads of A0 and A5 yield 0 then we will have a prime
+  // number as the base for the random seeding
+  randomSeed(analogRead(A0) + analogRead(A5) + 1031);
   for (uint8_t carol = 0; carol < num_carols; carol++) {
-    swap_with = random(num_carols);  // play_list entry to be swapped out with that in entry '[carol]'
+    // play_list entry to be swapped out with that in entry '[carol]'
+    swap_with = random(num_carols); // 0 to (num_carols - 1)
     swap      = play_list[carol];
     play_list[carol]     = play_list[swap_with];
     play_list[swap_with] = swap;
@@ -251,7 +254,7 @@ void shuffle_play_list() {
 //
 void wait(float duration) {
   uint32_t start;
-  start = millis();
+  start    = millis();
   duration = duration * 1000; // convert to milliseconds
   do {
   } while (millis() - start <= duration);
